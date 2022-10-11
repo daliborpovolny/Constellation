@@ -72,27 +72,19 @@ def get_semimajor_axis(orb_period, celestial_body): #semimajor axis is always th
 
     return semimajor_axis # in meters
 
-def get_transfer_orb(distance, number, mode, celestial_body):  
-    # returns orbital parameters for transfer orbit, takes in the distance at apogee, number of sattelites, type of transfer orbit
-    # transfer orbit type 1 is the quickest with lowest perigee, type 2 has higher perigee albeit with longer deployment time, type 3 has transfer orbit higher than the final orbit
-    
-    celestial_body_radius = planets[celestial_body]["diameter"]/2 * 1000 # times 1000 because it needs to be in meters but is in kilometers
-    orb_period = get_orb_period(distance + celestial_body_radius, celestial_body)
+def get_trans_orb_period(final_orbit_period, number_of_sattelites, type):
 
-    if mode == 1:
-        trans_orb_period = (1/number)*  orb_period
-    elif mode == 2:
-        trans_orb_period = (1-1/number)* orb_period
-    elif mode ==3:
-        trans_orb_period = (1+1/number)* orb_period
+    if type == 1:
+        trans_orb_period = (1/number_of_sattelites)*  final_orbit_period
+    elif type == 2:
+        trans_orb_period = (1-1/number_of_sattelites)* final_orbit_period
+    elif type ==3:
+        trans_orb_period = (1+1/number_of_sattelites)* final_orbit_period
     else:
         print("mode not defined correctly")
-        
-    trans_orb_sm_axis = get_semimajor_axis(trans_orb_period, celestial_body)
-    trans_orb_perigee = get_orb_perigee(trans_orb_sm_axis, distance)
-    orbital_parameters = [distance, trans_orb_perigee - celestial_body_radius]
+        trans_orb_period = 0
 
-    return orbital_parameters 
+    return trans_orb_period
 
 
 
