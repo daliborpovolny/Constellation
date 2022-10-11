@@ -68,7 +68,7 @@ def get_orb_period(semimajor_axis, celestial_body): #semimajor axis is always th
 
 def get_semimajor_axis(orb_period, celestial_body): #semimajor axis is always the same for certain orbital period, this goes both ways | orb_period is in seconds
     grav_par = get_grav_par(celestial_body)
-    semimajor_axis = (((orb_period^2)*grav_par)/(4*math.pi^2))**(1/3)
+    semimajor_axis = (((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
 
     return semimajor_axis # in meters
 
