@@ -7,7 +7,7 @@ planets = {
     "mercury": {
         "diameter": 4879,
         "mass": 58000000,
-        "grav_par": 22032.09E19,
+        "grav_par": 22032.09E9,
     },
     "venus": {
         "diameter": 12104,
@@ -17,7 +17,7 @@ planets = {
     "earth": {
         "diameter":12756,
         "mass": 555,
-        "grav_par": 398600.436E9,
+        "grav_par": 398600436000000,
     },
     "mars": {
         "diameter":6792,
@@ -55,8 +55,8 @@ def get_grav_par(celestial_body):
     
     return grav_par
 
-def get_orb_perigee(semimajor_axis, apogee): #semimajor axis in meters
-    perigee = 2*semimajor_axis - apogee
+def get_orb_perigee(semimajor_axis, apogee, celestial_body_radius): #semimajor axis in meters
+    perigee = (2*semimajor_axis - (apogee + celestial_body_radius)) - celestial_body_radius
 
     return perigee # in meters
 
@@ -68,7 +68,7 @@ def get_orb_period(semimajor_axis, celestial_body): #semimajor axis is always th
 
 def get_semimajor_axis(orb_period, celestial_body): #semimajor axis is always the same for certain orbital period, this goes both ways | orb_period is in seconds
     grav_par = get_grav_par(celestial_body)
-    semimajor_axis = (((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
+    semimajor_axis = ((orb_period* math.sqrt(grav_par))/(2*math.pi))**(2/3)        #(((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
 
     return semimajor_axis # in meters
 
