@@ -1,9 +1,6 @@
 from formulas import *
 
-radius = planets["earth"]["diameter"]/2 *1000
-test = get_orb_period(600000 + radius, "earth")
-test2 = get_grav_par("earth")
-print(test,radius, test2)
+
 
 def get_transfer_orb(distance, number, mode, celestial_body): 
 
@@ -21,3 +18,5 @@ def get_transfer_orb(distance, number, mode, celestial_body):
     orbital_parameters = [distance, trans_orb_perigee - celestial_body_radius]
 
     return orbital_parameters 
+
+print(get_transfer_orb(600000,3,2,"earth"))
