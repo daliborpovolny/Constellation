@@ -60,15 +60,17 @@ def get_orb_perigee(semimajor_axis, apogee, celestial_body_radius): #semimajor a
 
     return perigee # in meters
 
-def get_orb_period(semimajor_axis, celestial_body): #semimajor axis is always the same for certain orbital period, this goes both ways | semimajor_axis is in meters
+def get_orb_period(semimajor_axis, celestial_body): 
+    #semimajor axis is always the same for certain orbital period, this goes both ways | semimajor_axis is in meters
     grav_par = get_grav_par(celestial_body)
     orb_period = (2*math.pi)*math.sqrt((semimajor_axis**3)/grav_par)
 
     return orb_period # in seconds
 
-def get_semimajor_axis(orb_period, celestial_body): #semimajor axis is always the same for certain orbital period, this goes both ways | orb_period is in seconds
+def get_semimajor_axis(orb_period, celestial_body): 
+    #semimajor axis is always the same for certain orbital period, this goes both ways | orb_period is in seconds
     grav_par = get_grav_par(celestial_body)
-    semimajor_axis = ((orb_period* math.sqrt(grav_par))/(2*math.pi))**(2/3)        #(((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
+    semimajor_axis = ((orb_period* math.sqrt(grav_par))/(2*math.pi))**(2/3)    #(((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
 
     return semimajor_axis # in meters
 
