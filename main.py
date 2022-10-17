@@ -22,4 +22,6 @@ def get_transfer_orb(distance, number, mode, celestial_body):
 
     return orbital_parameters 
 
-print(get_transfer_orb(6371000,3,1,"earth"))
+#print(get_transfer_orb(6371000,3,1,"earth"))
+
+print(get_orb_period(600000, "earth"))

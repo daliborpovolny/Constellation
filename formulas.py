@@ -48,8 +48,8 @@ planets = {
 
 def get_grav_par(celestial_body):
 
-    #body_mass = planets["celestial_body"]["mass"]      #acceses the dictionary to get the mass of ce_body  ----  grav_par is now stored in dic instead of being calculated
-    #grav_par = grav_constant * body_mass    
+    # body_mass = planets[celestial_body]["mass"]      #acceses the dictionary to get the mass of ce_body  ----  grav_par is now stored in dic instead of being calculated
+    # grav_par = grav_constant * body_mass    
 
     grav_par = planets[celestial_body]["grav_par"]
     
