@@ -5,53 +5,51 @@ grav_constant = 6.67430E-11
 
 planets = { 
     "mercury": {
-        "diameter": 4879,
-        "mass": 58000000,
+        "radius": 2439700,
+        "mass": 0.330E24,
         "grav_par": 22032.09E9,
     },
     "venus": {
-        "diameter": 12104,
-        "mass": 108000000,
+        "radius": 6051800,
+        "mass": 4.87E24,
         "grav_par": 324859E9,
     },
     "earth": {
-        "diameter":12756,
-        "mass": 555,
+        "radius":6378140,
+        "mass": 5.97E24,
         "grav_par": 398600436000000,
     },
     "mars": {
-        "diameter":6792,
-        "mass": 555,
+        "radius":3396200,
+        "mass": 0.642E24,
         "grav_par": 42828.37362E9,
     },
     "jupiter": {
-        "diameter":142984,
-        "mass": 555,
+        "radius":71492000,
+        "mass": 1898E24,
         "grav_par": 126686531.9E9,
     },
     "saturn": {
-        "diameter":120536,
+        "radius":568E24,
         "grav_par": 37931206.23E9,
         "mass": 555,
     },
     "uranus": {
-        "diameter":51118,
-        "mass": 555,
+        "radius":25559000,
+        "mass": 86.8E24,
         "grav_par": 5793951.3E9,
     },
     "neptun": {
-        "diameter":49528,
-        "mass": 555,
+        "radius":24764000,
+        "mass": 102E24,
         "grav_par": 6835099.97E9,
     }
 }
 
 def get_grav_par(celestial_body):
 
-    # body_mass = planets[celestial_body]["mass"]      #acceses the dictionary to get the mass of ce_body  ----  grav_par is now stored in dic instead of being calculated
-    # grav_par = grav_constant * body_mass    
-
-    grav_par = planets[celestial_body]["grav_par"]
+    body_mass = planets[celestial_body]["mass"]      #acceses the dictionary to get the mass of ce_body
+    grav_par = grav_constant * body_mass    
     
     return grav_par
 
@@ -89,4 +87,5 @@ def get_trans_orb_period(final_orbit_period, number_of_sattelites, type):
     return trans_orb_period
 
 
-
+print(get_semimajor_axis(5802.2890, "earth")- planets["earth"]["radius"])
+print(get_orb_period(600000 + planets["earth"]["radius"], "earth"))
