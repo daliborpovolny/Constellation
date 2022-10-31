@@ -19,4 +19,3 @@ def get_transfer_orb(distance, number, mode, celestial_body):
 
     return orbital_parameters 
 
-print(get_transfer_orb(6371000,3,1,"earth"))

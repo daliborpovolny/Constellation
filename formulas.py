@@ -85,7 +85,3 @@ def get_trans_orb_period(final_orbit_period, number_of_sattelites, type):
         trans_orb_period = 0
 
     return trans_orb_period
-
-
-print(get_semimajor_axis(5802.2890, "earth")- planets["earth"]["radius"])
-print(get_orb_period(600000 + planets["earth"]["radius"], "earth"))
