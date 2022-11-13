@@ -1,5 +1,4 @@
 import math
-import numpy
 
 grav_constant = 6.67430E-11
 
