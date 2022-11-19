@@ -92,3 +92,11 @@ def dv_needed_for_circularization(celestial_body, starting_orb_radius, final_orb
 
     return abs(v) #change in velocity doesn not have a direction
 
+def get_lowest_point(n_of_satellites, orbital_radius):
+    alpha = math.radians(360 / n_of_satellites)
+
+    side_between_satellites = math.sqrt((2*(orbital_radius**2))-(2*orbital_radius**2 *math.cos(alpha)))
+    
+    lowest_point = math.sqrt((orbital_radius**2)-((side_between_satellites*0.5)**2))
+
+    return lowest_point
