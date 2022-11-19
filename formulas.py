@@ -84,3 +84,11 @@ def get_trans_orb_period(final_orbit_period, number_of_sattelites, type):
         trans_orb_period = 0
 
     return trans_orb_period
+
+def dv_needed_for_circularization(celestial_body, starting_orb_radius, final_orb_radius):
+    grav_par = get_grav_par(celestial_body)
+    
+    v = math.sqrt(grav_par/final_orb_radius)*(1- (math.sqrt((2*starting_orb_radius) / (starting_orb_radius + final_orb_radius))))
+
+    return abs(v) #change in velocity doesn not have a direction
+

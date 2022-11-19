@@ -31,5 +31,9 @@ class TestMain(unittest.TestCase):
         self.assertTrue(is_within_diff(get_transfer_orb(2439700, 3, 2, "mercury")[1], 128258.2, 0.01))
         self.assertTrue(is_within_diff(get_transfer_orb(6049000, 3, 2, "venus")[1], 318003.9, 0.01))
 
+    def test_dv_required_for_ciculalization(self):
+        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 2, "earth")[2], 552.53, 0.1))
+        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 3, "earth")[2], 329.99, 0.1))
+
 if __name__ == '__main__':
     unittest.main()

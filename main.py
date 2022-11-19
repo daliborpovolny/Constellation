@@ -15,6 +15,8 @@ def get_transfer_orb(distance, number, mode, celestial_body):
     trans_orb_sm_axis = get_semimajor_axis(trans_orb_period, celestial_body)
     trans_orb_perigee = get_orb_perigee(trans_orb_sm_axis, distance, celestial_body_radius)
 
-    orbital_parameters = [distance, trans_orb_perigee]
+    dv = dv_needed_for_circularization(celestial_body, trans_orb_perigee + celestial_body_radius, distance + celestial_body_radius)
+    
+    orbital_parameters = [distance, trans_orb_perigee, dv]
 
     return orbital_parameters 
