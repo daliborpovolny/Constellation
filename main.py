@@ -21,5 +21,3 @@ def get_transfer_orb(distance, number, mode, celestial_body):
     orbital_parameters = [distance, trans_orb_perigee, dv]
     
     return orbital_parameters 
-
-print(get_transfer_orb(10000000, 3, 2, "earth"))

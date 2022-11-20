@@ -15,7 +15,7 @@ planets = {
         "atmosphere": 145000.0,
     },
     "earth": {
-        "radius":6049000,
+        "radius":6378140,
         "mass": 5.97E24,
         "grav_par": 3.9860043543609598E14,
         "atmosphere": 140000.0,
