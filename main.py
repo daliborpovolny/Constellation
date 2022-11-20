@@ -17,7 +17,6 @@ def get_transfer_orb(distance, number, mode, celestial_body):
 
     dv = dv_needed_for_circularization(celestial_body, trans_orb_perigee + celestial_body_radius, distance + celestial_body_radius)
 
-    print(get_lowest_point(number,distance + celestial_body_radius) - celestial_body_radius)
     
     orbital_parameters = [distance, trans_orb_perigee, dv]
     

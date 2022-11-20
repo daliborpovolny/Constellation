@@ -6,42 +6,49 @@ planets = {
     "mercury": {
         "radius": 2439700,
         "mass": 0.330E24,
-        "grav_par": 22032.09E9,
+        "grav_par": 2.2031780000000021E13,
     },
     "venus": {
         "radius": 6051800,
         "mass": 4.87E24,
-        "grav_par": 324859E9,
+        "grav_par": 3.2485859200000006E14,
+        "atmosphere": 145000.0,
     },
     "earth": {
-        "radius":6378140,
+        "radius":6049000,
         "mass": 5.97E24,
-        "grav_par": 398600436000000,
+        "grav_par": 3.9860043543609598E14,
+        "atmosphere": 140000.0,
     },
     "mars": {
         "radius":3396200,
         "mass": 0.642E24,
-        "grav_par": 42828.37362E9,
+        "grav_par": 4.282837362069909E13,
+        "atmosphere": 125000.0,
     },
     "jupiter": {
         "radius":71492000,
         "mass": 1898E24,
         "grav_par": 126686531.9E9,
+        "atmosphere": 1550000.0,
     },
     "saturn": {
-        "radius":568E24,
-        "grav_par": 37931206.23E9,
+        "radius":57216000,
+        "grav_par": 3.793120749865224E16,
         "mass": 555,
+        "atmosphere": 2000000.0,
     },
     "uranus": {
         "radius":25559000,
         "mass": 86.8E24,
-        "grav_par": 5793951.3E9,
+        "grav_par": 5.793951322279009E15,
+        "atmosphere": 1400000.0
     },
     "neptun": {
         "radius":24764000,
         "mass": 102E24,
-        "grav_par": 6835099.97E9,
+        "grav_par": 6.835099502439672E15,
+        "atmosphere": 1250000.0
     }
 }
 
@@ -67,7 +74,7 @@ def get_orb_period(semimajor_axis, celestial_body):
 def get_semimajor_axis(orb_period, celestial_body): 
     #semimajor axis is always the same for certain orbital period, this goes both ways | orb_period is in seconds
     grav_par = get_grav_par(celestial_body)
-    semimajor_axis = ((orb_period* math.sqrt(grav_par))/(2*math.pi))**(2/3)    #(((orb_period**2)*grav_par)/(4*math.pi**2))**(1/3)
+    semimajor_axis = ((orb_period* math.sqrt(grav_par))/(2*math.pi))**(2/3)
 
     return semimajor_axis # in meters
 
