@@ -107,3 +107,9 @@ def get_lowest_point(n_of_satellites, orbital_radius):
     lowest_point = math.sqrt((orbital_radius**2)-((side_between_satellites*0.5)**2))
 
     return lowest_point
+
+def has_atmosphere(celestial_body):
+    if planets.get(celestial_body, {}).get("atmosphere") != None:
+        return planets.get(celestial_body, {}).get("atmosphere")
+    else:
+        return 0

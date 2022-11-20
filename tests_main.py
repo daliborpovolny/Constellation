@@ -26,14 +26,14 @@ class TestMain(unittest.TestCase):
         self.assertEqual(round(get_semimajor_axis(5553.63, "earth") -  planets["earth"]["radius"] , -4),400000)
     
     def test_get_transfer_orbit_mode_dive(self):
-        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 2, "earth")[1], 4285925.5, 0.01))
-        self.assertTrue(is_within_diff(get_transfer_orb(8000000, 8, 2, "mars")[1], 6062164.9, 0.01))
-        self.assertTrue(is_within_diff(get_transfer_orb(2439700, 3, 2, "mercury")[1], 128258.2, 0.01))
-        self.assertTrue(is_within_diff(get_transfer_orb(6049000, 3, 2, "venus")[1], 318003.9, 0.01))
+        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 2, "earth", True)[1], 4285925.5, 0.01))
+        self.assertTrue(is_within_diff(get_transfer_orb(8000000, 8, 2, "mars", True)[1], 6062164.9, 0.01))
+        self.assertTrue(is_within_diff(get_transfer_orb(2439700, 3, 2, "mercury", True)[1], 128258.2, 0.01))
+        self.assertTrue(is_within_diff(get_transfer_orb(6049000, 3, 2, "venus", True)[1], 318003.9, 0.01))
 
     def test_dv_required_for_ciculalization(self):
-        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 2, "earth")[2], 552.53, 0.1))
-        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 3, "earth")[2], 329.99, 0.1))
+        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 2, "earth", True)[2], 552.53, 0.1))
+        self.assertTrue(is_within_diff(get_transfer_orb(10000000, 4, 3, "earth", True)[2], 329.99, 0.1))
 
 if __name__ == '__main__':
     unittest.main()
