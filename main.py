@@ -1,13 +1,8 @@
 from formulas import *
 
 def main():
-    print("welcome in tranfer orbit calculator")
-    number_of_satellites = int(input("how many satellites? (more than one)\n"))
-    altitude = int(input("altitude of satellites (not including radius of orbited body)\n"))
-    body = str(input("which body will the satellite network be around\n"))
-    type_of_transfer_orbit = int(input("type of transfer orbit (1 for dive, 2 for longer type\n"))
-
-    get_transfer_orb(altitude, number_of_satellites, type_of_transfer_orbit, body)
+    mode = get_choice(["1", "2", "3"])
+    altitude = get_choice(1)
 
 def get_transfer_orb(distance, number, mode, celestial_body, test_mode = False): 
 
@@ -38,4 +33,11 @@ def get_transfer_orb(distance, number, mode, celestial_body, test_mode = False):
     
     return [distance, trans_orb_perigee, dv]
 
+def get_choice(choices):
+    choice = ""
+    while choice not in choices:
+        choice = input("Choose one of [%s]: " % ", ".join(choices))
+    return choice
+
 main()
+
