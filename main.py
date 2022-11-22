@@ -1,8 +1,8 @@
 from formulas import *
 
 def main():
-    mode = get_choice(["1", "2", "3"])
-    altitude = get_choice(1)
+    celestial_body = get_choice(["earth", "mercury", "mars", "venus", "jupiter", "saturn", "uranus", "neptune"])
+    transfer_orb_type = get_choice([1,3])
 
 def get_transfer_orb(distance, number, mode, celestial_body, test_mode = False): 
 
@@ -33,11 +33,23 @@ def get_transfer_orb(distance, number, mode, celestial_body, test_mode = False):
     
     return [distance, trans_orb_perigee, dv]
 
-def get_choice(choices):
-    choice = ""
+def get_choice(choices): #data type stands for data type of answer not data type of choices
+    choice = None
+
     while choice not in choices:
-        choice = input("Choose one of [%s]: " % ", ".join(choices))
+
+        choice = input(f"Possible choices are {choices} ")
+
+        if type(choice) == int:
+            print("choice is int or float")
+            if choices[0] <= choice <= choices[1]:
+                print("returning")
+                return choice
+
+        if type(choice) == str:
+            choice = choice.lower()
+
     return choice
 
-main()
 
+main()
