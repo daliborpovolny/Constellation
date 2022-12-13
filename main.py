@@ -63,4 +63,3 @@ def get_range(values):
         except:
             pass
 
-main()
